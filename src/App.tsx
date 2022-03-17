@@ -1,26 +1,34 @@
-import React from 'react';
-import logo from './logo.svg';
+import React from "react";
+import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
+import Map from "./components/Map";
+import Newslist from "./components/Newslist";
+import Header from "./components/Header";
 import './App.css';
+import { Grid } from '@material-ui/core';
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+  <div>
+  <Header/>
+  <Grid container>
+        <Grid item xs={3} >
+        <Newslist />
+        </Grid>
+        <Grid item xs={9} >
+        <Map />
+        </Grid>
+      </Grid>
+      <div className="rows" >
+        
+ 
+   
+  
+
+
     </div>
-  );
+  </div>
+  )
 }
 
 export default App;

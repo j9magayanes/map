@@ -1,0 +1,33 @@
+.header {
+padding: 0;
+margin: 0;
+    color: #65959F;
+  }
+  .h1 {
+      padding: 0;
+      margin:0
+  }
+
+  .logo {
+      padding: 10px;
+      height: 20px;
+      width: 20px;
+  }
+  .background {
+    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSfXSn7kuaHt9BVesxw-2tjysK3n_K5RaH8-A&usqp=CAU");
+  }
+
+  .search {
+    background-color: #BDD7D6;
+    border-radius: 40px;
+    padding: 10px;
+    margin:10px;
+  }
+  .news {
+    background-color:#F3F3F3 ;
+    padding: 10px;
+    margin:10px;
+    border-radius: 25px;
+    width: 310px;
+height: 147px;
+  }
