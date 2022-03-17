@@ -4,3 +4,7 @@
     position: absolute;
     background-color: #aad3df;
   }
+.newsImage {
+  height: 150px;
+  width:250px
+}

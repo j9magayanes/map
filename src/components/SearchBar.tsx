@@ -3,11 +3,11 @@ import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import './Header.css';
 
 
-function Search(){
+function SearchBar(){
     return (
   
-        <div className="search"></div>
+        <div className="searchbar"></div>
     )
   }
 
-export default Search;
+export default SearchBar;

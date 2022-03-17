@@ -10,8 +10,8 @@ margin: 0;
 
   .logo {
       padding: 10px;
-      height: 20px;
-      width: 20px;
+      height: 30px;
+      width: 30px;
   }
   .background {
     background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSfXSn7kuaHt9BVesxw-2tjysK3n_K5RaH8-A&usqp=CAU");
@@ -22,12 +22,33 @@ margin: 0;
     border-radius: 40px;
     padding: 10px;
     margin:10px;
+    height: 20px;
   }
-  .news {
+
+  .searchbar {
+    width: 250px;
+    height: 20px;
+    padding: 5px;
+    margin: 5px;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.25);
+    border-radius: 40px;
+  }
+  .newsList {
     background-color:#F3F3F3 ;
     padding: 10px;
     margin:10px;
     border-radius: 25px;
     width: 310px;
-height: 147px;
+    height: 147px;
+  }
+
+  .newsListImage {
+    width: 20px;
+    height: 27px;
+  }
+
+
+  .newsContent {
+    font-size: 10px;
   }
