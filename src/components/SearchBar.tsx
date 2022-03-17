@@ -6,7 +6,12 @@ import './Header.css';
 function SearchBar(){
     return (
   
-        <div className="searchbar"></div>
+
+          <select className="searchbar">
+          <option>All Category</option>
+          <option>Politics</option>
+      </select>
+ 
     )
   }
 
