@@ -4,6 +4,7 @@ import './Header.css';
 import newsData from "../data/news.json";
 
 function News(){
+
   const countries = newsData
   const activeCountries = newsData.filter(news => news.status == true)
   const filteredCountries = newsData.filter(news => news.address.country === "Germany")
@@ -11,7 +12,7 @@ function News(){
 
     return (
         <div>
-        { activeFilteredCountries.map(news => (
+        { activeCountries.map(news => (
             <div  className="newsList">
             <p>{news.headline}</p>
             <p className="newsContent">{news.content}</p>
