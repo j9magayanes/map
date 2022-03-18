@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import './Header.css';
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
@@ -8,29 +8,22 @@ import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 
-const useStyles = makeStyles((theme: Theme) =>
-  createStyles({
-    formControl: {
-      margin: theme.spacing(1),
-      minWidth: 120,
-    },
-    selectEmpty: {
-      marginTop: theme.spacing(2),
-    },
-  }),
-);
 
 
 
 function SearchBar(){
+  const [category,setCategory] = useState();
+
+  function handleSelectChange(event: { target: { value: any; }; }) {
+  setCategory(event.target.value);
+}
+console.log(category);
     return (
-          <select className="searchbar">
-          <option id="all">All Category</option>
-          <option id="politics">Politics</option>
-          <option id="business">Business</option>
-          <option id="technology">Technology</option>
-          <option id="health">Health</option>
-      </select>
+      <select value={category} onChange={handleSelectChange}> 
+      <option value="all">All Category</option>
+      <option value="politics">Politics</option>
+      <option value="business">Business</option>
+  </select>
  
     )
   }
