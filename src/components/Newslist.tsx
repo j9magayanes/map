@@ -6,13 +6,8 @@ import Search from "./Search"
 
 function Newslist() {
   return  <>
-
-  
       <Search/>
       <News/>
-
-
-
   </>
 }
 

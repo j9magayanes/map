@@ -15,7 +15,7 @@
       "gps": { "latitude": 51.1657, "longitude": 10.4515 },
       "headline": "Bund schickt Busse für 5000 Flüchtlinge – Kipping kritisiert „Hauruckaktionen“",
       "content": "Schon rund 8000 Schlafplätze geschaffen + Registrierung soll einfacher werden + Mehr Flüchtlinge mit Behinderungen + Der Berlin-Blog zur Ukraine. SOPHIE KRAUSE ALEXANDER FRÖHLICH SONJA WURTSCHEID...",
-      "category": "Politics",
+      "category": "politics",
       "image": "https://www.tagesspiegel.de/images/senatssitzung/28172792/2-format6001.jpg"
     },
     {
@@ -34,7 +34,7 @@
       "gps": { "latitude": 37.5665, "longitude": 126.9780 },
       "headline": "COVID: S Korea reports record cases as Omicron wave nears peak",
       "content": "Country long hailed as a pandemic success story reports more than 621,000 cases and 429 deaths.",
-      "category": "Technology",
+      "category": "science",
       "image": "https://www.aljazeera.com/wp-content/uploads/2022/03/000_326B8Y8.jpg?resize=770%2C513"
     },
     {
@@ -53,7 +53,7 @@
       "gps": { "latitude": 47.7511, "longitude": -120.7401 },
       "headline": "Apple and Google app stores remain available in Russia. Activists and officials say that’s a good thing.",
       "content": "The cybersecurity firm Cloudflare also remains active in Russia. Withdrawing its services would hurt Russians’ ability to access independent sources of information, officials say.",
-      "category": "Technology",
+      "category": "technology",
       "image": "https://www.washingtonpost.com/wp-apps/imrs.php?src=https://arc-anglerfish-washpost-prod-washpost.s3.amazonaws.com/public/U7ZIQJUU6II6ZOZROT6ANQFDUU.jpg&w=916"
     }
 ]

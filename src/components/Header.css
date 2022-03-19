@@ -1,7 +1,7 @@
 .header {
 padding: 0;
 margin: 0;
-    color: #65959F;
+    color: white;
   }
   .h1 {
       padding: 0;
@@ -14,11 +14,11 @@ margin: 0;
       width: 30px;
   }
   .background {
-    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSfXSn7kuaHt9BVesxw-2tjysK3n_K5RaH8-A&usqp=CAU");
+    background-color: #65959F;
   }
 
   .search {
-    background-color: #BDD7D6;
+    background-color: #4FD4F5;
     border-radius: 40px;
     padding: 10px;
     margin:10px;
