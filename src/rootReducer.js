@@ -1,4 +1,4 @@
-import {  ADD_CATEGORY, REMOVE_CATEGORY } from './actionCreators';
+import {  ADD_CATEGORY, ADD_COUNTRY, REMOVE_CATEGORY, REMOVE_COUNTRY} from './actionCreators';
 
 const initialState = {
     category: "all"
@@ -17,6 +17,16 @@ export default function rootReducer( state = initialState, action) {
                 ...newState,
                 category: ''
             };
+        case ADD_COUNTRY:
+            return {
+                ...newState,
+                country: action.country
+            }
+            case REMOVE_COUNTRY:
+                return {
+                    ...newState,
+                    country: ''
+                };
         default: 
             return state;
     }

@@ -3,6 +3,7 @@ import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import Map from "./components/Map";
 import Newslist from "./components/Newslist";
 import Header from "./components/Header";
+import Screen from "./components/Screen";
 import './App.css';
 import { Grid } from '@material-ui/core';
 

@@ -6,7 +6,7 @@ import './Header.css';
 function Search(){
     return (
   
-        <div className="search"></div>
+        <div className="search">NEWS IN GERMANY</div>
     )
   }
 

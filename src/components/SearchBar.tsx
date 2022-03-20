@@ -10,10 +10,6 @@ import Select from '@material-ui/core/Select';
 import {connect, useDispatch, useStore} from "react-redux";
 import { addCategory, ADD_CATEGORY } from "../actionCreators";
 
-
-
-
-
 function SearchBar(){
   const dispatch = useDispatch();
   const store = useStore();
