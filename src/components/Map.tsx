@@ -3,13 +3,15 @@ import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import "./Map.css";
 import Screen from "./Screen";
 import newsData from "../data/news.json";
-import { useDispatch, useSelector, useStore } from "react-redux";
+import { connect, useDispatch, useSelector, useStore } from "react-redux";
+import { ADD_COUNTRY } from "../actionCreators";
+import { Button } from "@mui/material";
 
 function Map() {
   const dispatch = useDispatch();
   const store = useStore();
-  const state = useState();
   const category = useSelector(() => store.getState().category);
+  const [ country, setCountry ] = useState('');
 
   const categories = newsData;
   const activeCategories = newsData.filter(
@@ -21,6 +23,16 @@ function Map() {
   const activeFilteredCountries = newsData.filter(
     (news) => news.address.country === "Germany" && news.status == false
   );
+
+  function handleOnClick(country: string) {
+    dispatch({
+      type: ADD_COUNTRY,
+      country: country
+    });
+  }
+
+    console.log(store.getState().country)
+  
 
   return (
     <MapContainer
@@ -45,18 +57,27 @@ function Map() {
           position={[news.gps.latitude, news.gps.longitude]}
           eventHandlers={{
             click: () => {
-              console.log();
+              setCountry(news.address.country)
             },
           }}
         >
           <Popup  className="popUp">
+              <Button onClick={() => {
+                handleOnClick(country)
+              }}>View List</Button>
             <Screen/>
           </Popup>
         </Marker>
+        
       ))}
-  
     </MapContainer>
   );
-}
+  
+        }
+  function mapStateToProps(state: { country: string }) {
+    const { country } = state;
+    return { country: state.country };
+  }
+  
+export default connect(mapStateToProps)(Map);
 
-export default Map;

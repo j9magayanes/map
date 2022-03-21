@@ -25,7 +25,7 @@ export default function rootReducer( state = initialState, action) {
             case REMOVE_COUNTRY:
                 return {
                     ...newState,
-                    country: ''
+                    country: undefined
                 };
         default: 
             return state;
