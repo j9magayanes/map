@@ -9,18 +9,16 @@ function News(){
   const store = useStore();
   const state = useState();
 
-  console.log("jin")
-  console.log(useSelector(() => store.getState()))
-  const category = useSelector(() => store.getState().category);
-  const country = useSelector(() => store.getState().country);
+
+  const category = useSelector(() => store.getState().categoryReducer.category);
+  const country = useSelector(() => store.getState().countryReducer.country);
+
 
 
   const countries = newsData
   const activeCountries = newsData.filter(news => news.status == true)
   const filteredCountries = newsData.filter(news => news.address.country === "Germany")
   const activeFilteredCountries = newsData.filter(news => (news.address.country === country && news.category === category))
-
-
 
     return (
         <div>

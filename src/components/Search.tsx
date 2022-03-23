@@ -1,12 +1,16 @@
 import React from "react";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
+import { useSelector, useStore } from "react-redux";
 import './Header.css';
 
 
+
 function Search(_props: any){
+  const store = useStore();
+  const country = useSelector(() => store.getState().countryReducer.country);
     return (
   
-      _props.country ?  <div className="search">NEWS in {_props.country} </div> : null 
+     country ?  <div className="search">NEWS in {country} </div> : null 
     )
   }
 

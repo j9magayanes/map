@@ -10,9 +10,8 @@ import { useSelector, useStore } from "react-redux";
 
 
 function App() {
-
-const store = useStore();
-const country = useSelector(() => store.getState().country);
+  const store = useStore();
+const country = useSelector(() => store.getState().countryReducer.country);
 
   return (
   <div>

@@ -6,33 +6,28 @@ import newsData from "../data/news.json";
 import { connect, useDispatch, useSelector, useStore } from "react-redux";
 import { ADD_COUNTRY } from "../actionCreators";
 import { Button } from "@mui/material";
+import { categoryReducer } from "../rootReducer";
 
 function Map() {
   const dispatch = useDispatch();
   const store = useStore();
-  const category = useSelector(() => store.getState().category);
-  const [ country, setCountry ] = useState('');
+  const category = useSelector(() => store.getState().categoryReducer.category);
 
-  const categories = newsData;
+  const [country, setCountry] = useState("");
   const activeCategories = newsData.filter(
     (news) => news.category === category
-  );
-  const filteredCountries = newsData.filter(
-    (news) => news.address.country === "Germany"
-  );
-  const activeFilteredCountries = newsData.filter(
-    (news) => news.address.country === "Germany" && news.status == false
   );
 
   function handleOnClick(country: string) {
     dispatch({
       type: ADD_COUNTRY,
-      country: country
+      country: country,
     });
   }
 
-    console.log(store.getState().country)
-  
+  useEffect(() => {
+
+  }, [store.getState().categoryReducer.category]);
 
   return (
     <MapContainer
@@ -57,27 +52,28 @@ function Map() {
           position={[news.gps.latitude, news.gps.longitude]}
           eventHandlers={{
             click: () => {
-              setCountry(news.address.country)
+              setCountry(news.address.country);
             },
           }}
         >
-          <Popup  className="popUp">
-              <Button onClick={() => {
-                handleOnClick(country)
-              }}>View List</Button>
-            <Screen/>
+          <Popup className="popUp">
+            <Screen />
+            <Button
+              onClick={() => {
+                handleOnClick(country);
+              }}
+            >
+              View List
+            </Button>
           </Popup>
         </Marker>
-        
       ))}
     </MapContainer>
   );
-  
-        }
-  function mapStateToProps(state: { country: string }) {
-    const { country } = state;
-    return { country: state.country };
-  }
-  
-export default connect(mapStateToProps)(Map);
+}
+function mapStateToProps(state: { country: string }) {
+  const { country } = state;
+  return { country: state.country };
+}
 
+export default connect(mapStateToProps)(Map);

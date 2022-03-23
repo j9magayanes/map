@@ -25,7 +25,7 @@ function SearchBar() {
 
   return (
     <select onChange={handleSelectChange}>
-      <option value="all">All Category</option>
+      <option value="all">Select a Category</option>
       <option value="news">News</option>
       <option value="politics">Politics</option>
       <option value="business">Business</option>

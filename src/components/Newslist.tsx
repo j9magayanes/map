@@ -18,12 +18,15 @@ function Newslist(_props: any) {
     dispatch({
       type: REMOVE_COUNTRY,
     });
+    dispatch({
+      type: REMOVE_CATEGORY,
+    });
   }
 
   return  <>
       <Search country={_props.country}/>
       <News/>
-      <Button onClick={()=> handleOnClick()}>Map</Button>
+      <Button onClick={()=> handleOnClick()}>Reset Filter</Button>
 </>
 }
 function mapStateToProps(state: { country: any }) {
