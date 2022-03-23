@@ -10,6 +10,7 @@ export default function rootReducer( state = initialState, action) {
         case ADD_CATEGORY:
             var newState = {...state};
             return {
+                ...newState,
                 category: action.category
             };
         case REMOVE_CATEGORY:
