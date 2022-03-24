@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import './Header.css';
+import { Grid } from '@material-ui/core';
 import newsData from "../data/news.json";
 import { useDispatch, useSelector, useStore } from "react-redux";
 
@@ -23,10 +24,19 @@ function News(){
     return (
         <div>
         { activeFilteredCountries.map(news => (
+            <Grid container>
+              <Grid item xs={3}>
             <div  className="newsList">
-            <p>{news.headline}</p>
-            <p className="newsContent">{news.content}</p>
+            <img className="newsListImage" src={news.image}></img>
             </div>
+            </Grid>
+            <Grid item xs={9}>
+            <div className="newsListContents">
+            <p className="newsListHeadline">{news.headline}</p>
+            <p className="newsListContent">{news.content}</p>
+            </div>
+            </Grid>
+            </Grid>
           ))}
           </div>
     )

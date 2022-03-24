@@ -52,19 +52,15 @@ function Map() {
           position={[news.gps.latitude, news.gps.longitude]}
           eventHandlers={{
             click: () => {
-              setCountry(news.address.country);
+              dispatch({
+                type: ADD_COUNTRY,
+                country: news.address.country,
+              });
             },
           }}
         >
           <Popup className="popUp">
-            <Screen />
-            <Button
-              onClick={() => {
-                handleOnClick(country);
-              }}
-            >
-              View List
-            </Button>
+          <Screen />
           </Popup>
         </Marker>
       ))}
