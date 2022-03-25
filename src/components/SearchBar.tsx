@@ -24,20 +24,27 @@ function SearchBar() {
   const category = store.getState().category;
 
   return (
-    <select onChange={handleSelectChange}>
-      <option value="all">Select a Category</option>
-      <option value="news">News</option>
-      <option value="politics">Politics</option>
-      <option value="business">Business</option>
-      <option value="technology">Technology</option>
-      <option value="science">Science and Education</option>
-      <option value="technology">Lifestyle</option>
-      <option value="travel">Travel</option>
-      <option value="sports">Sports</option>
-      <option value="culture">Culture</option>
-      <option value="music">Music</option>
-      <option value="cars">Cars</option>
-    </select>
+    <FormControl fullWidth>
+      <Select
+        labelId="demo-simple-select-label"
+        id="demo-simple-select"
+        label="Age"
+        onChange={handleSelectChange}
+      >
+        <option value="all">Select a Category</option>
+        <option value="news">News</option>
+        <option value="politics">Politics</option>
+        <option value="business">Business</option>
+        <option value="technology">Technology</option>
+        <option value="science">Science and Education</option>
+        <option value="lifestyle">Lifestyle</option>
+        <option value="travel">Travel</option>
+        <option value="sports">Sports</option>
+        <option value="culture">Culture</option>
+        <option value="music">Music</option>
+        <option value="cars">Cars</option>
+      </Select>
+    </FormControl>
   );
 }
 
