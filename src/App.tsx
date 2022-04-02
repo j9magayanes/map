@@ -7,6 +7,7 @@ import Screen from "./components/Screen";
 import './App.css';
 import { Grid } from '@material-ui/core';
 import { useSelector, useStore } from "react-redux";
+import { useData } from './useData';
 
 
 function App() {

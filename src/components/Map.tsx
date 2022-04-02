@@ -7,11 +7,16 @@ import { connect, useDispatch, useSelector, useStore } from "react-redux";
 import { ADD_COUNTRY } from "../actionCreators";
 import { Button } from "@mui/material";
 import { categoryReducer } from "../rootReducer";
+import { useData } from "../useData";
+
+
 
 function Map() {
   const dispatch = useDispatch();
   const store = useStore();
   const category = useSelector(() => store.getState().categoryReducer.category);
+  const data = useData();
+
 
   const [country, setCountry] = useState("");
   const activeCategories = newsData.filter(
@@ -26,11 +31,10 @@ function Map() {
   }
 
   useEffect(() => {
-
   }, [store.getState().categoryReducer.category]);
 
   return (
-    <MapContainer
+  <MapContainer
       center={[51.505, -0.09]}
       zoom={4}
       maxZoom={3}
@@ -44,12 +48,11 @@ function Map() {
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         noWrap={true}
-        minZoom={2}
-      />
+        minZoom={2} />
       {activeCategories.map((news) => (
         <Marker
           key={news.id}
-          position={[news.gps.latitude, news.gps.longitude]}
+          position={[-17.68957, 137.37532]}
           eventHandlers={{
             click: () => {
               dispatch({
@@ -60,7 +63,7 @@ function Map() {
           }}
         >
           <Popup className="popUp">
-          <Screen />
+            <Screen />
           </Popup>
         </Marker>
       ))}
