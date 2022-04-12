@@ -1,8 +1,9 @@
-import {  ADD_CATEGORY, ADD_COUNTRY, REMOVE_CATEGORY, REMOVE_COUNTRY} from './actionCreators';
+import {  ADD_CATEGORY, ADD_COUNTRY, REMOVE_CATEGORY, REMOVE_COUNTRY, LOAD_DATA} from './actionCreators';
 
 const initialState = {
     country: "",
-    category: ""
+    category: "",
+    data: [],
 }
 
 export function categoryReducer( state = initialState, action) {
@@ -44,3 +45,18 @@ export function countryReducer( state = initialState, action) {
             return state;
     }
 }
+
+export function dataReducer( state = initialState, action) {
+
+    switch(action.type) {
+        case LOAD_DATA:
+            var newState = {...state};
+            return {
+                ...newState,
+                availableData: action.data,
+              };
+        default: 
+            return state;
+    }
+}
+

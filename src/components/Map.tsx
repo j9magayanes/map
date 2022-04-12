@@ -1,27 +1,37 @@
 import React, { useEffect, useState } from "react";
-import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
+import { MapContainer, TileLayer, Marker, Popup,   Circle, } from "react-leaflet";
 import "./Map.css";
 import Screen from "./Screen";
 import newsData from "../data/news.json";
 import { connect, useDispatch, useSelector, useStore } from "react-redux";
-import { ADD_COUNTRY } from "../actionCreators";
+import { ADD_COUNTRY, LOAD_DATA, fetchData} from "../actionCreators";
 import { Button } from "@mui/material";
-import { categoryReducer } from "../rootReducer";
-import { useData } from "../useData";
-
+import { categoryReducer, dataReducer } from "../rootReducer";
+import { useCarbonData } from "../useCarbonData";
 
 
 function Map() {
   const dispatch = useDispatch();
   const store = useStore();
   const category = useSelector(() => store.getState().categoryReducer.category);
-  const data = useData();
+  const data: any = useCarbonData();
+  const datas: { long: any; lat: any; }[] = []
 
+  if(data){ 
+    data.items.map((data: { long: any; lat: any; })=> {
+      return datas.push(data);
+   })
+  }
+ 
 
   const [country, setCountry] = useState("");
   const activeCategories = newsData.filter(
     (news) => news.category === category
   );
+  const categories = newsData.filter(
+    (news) => news
+  );
+
 
   function handleOnClick(country: string) {
     dispatch({
@@ -49,10 +59,13 @@ function Map() {
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         noWrap={true}
         minZoom={2} />
+      {datas.map((news) => (
+        <Circle center={[news.lat,news.long]}  radius={20000}></Circle>
+      ))}
       {activeCategories.map((news) => (
-        <Marker
+     <Marker
           key={news.id}
-          position={[-17.68957, 137.37532]}
+          position={[news.gps.latitude,news.gps.longitude]}
           eventHandlers={{
             click: () => {
               dispatch({
@@ -76,3 +89,7 @@ function mapStateToProps(state: { country: string }) {
 }
 
 export default connect(mapStateToProps)(Map);
+function news(news: any): string | JSX.Element | React.ReactNode[] | JSX.Element[] {
+  throw new Error("Function not implemented.");
+}
+

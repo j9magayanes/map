@@ -7,12 +7,13 @@ import Screen from "./components/Screen";
 import './App.css';
 import { Grid } from '@material-ui/core';
 import { useSelector, useStore } from "react-redux";
-import { useData } from './useData';
+import { useCarbonData } from './useCarbonData';
+
 
 
 function App() {
   const store = useStore();
-const country = useSelector(() => store.getState().countryReducer.country);
+  const country = useSelector(() => store.getState().countryReducer.country);
 
   return (
   <div>

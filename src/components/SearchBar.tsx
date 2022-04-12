@@ -1,10 +1,5 @@
-import React, { useState } from "react";
-import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
+import React, { useState } from "react";  
 import "./Header.css";
-import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
-import InputLabel from "@material-ui/core/InputLabel";
-import MenuItem from "@material-ui/core/MenuItem";
-import FormHelperText from "@material-ui/core/FormHelperText";
 import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
 import { connect, useDispatch, useStore } from "react-redux";
@@ -24,25 +19,18 @@ function SearchBar() {
   const category = store.getState().category;
 
   return (
-    <FormControl fullWidth>
+    <FormControl fullWidth >
       <Select
         labelId="demo-simple-select-label"
         id="demo-simple-select"
-        label="Age"
+        label="category"
         onChange={handleSelectChange}
+        className="searchbar"
       >
-        <option value="all">Select a Category</option>
-        <option value="news">News</option>
-        <option value="politics">Politics</option>
-        <option value="business">Business</option>
-        <option value="technology">Technology</option>
-        <option value="science">Science and Education</option>
-        <option value="lifestyle">Lifestyle</option>
-        <option value="travel">Travel</option>
-        <option value="sports">Sports</option>
-        <option value="culture">Culture</option>
-        <option value="music">Music</option>
-        <option value="cars">Cars</option>
+        <option value="all" >Select a Category</option>
+        <option value="carbon">Carbon Emission</option>
+        <option value="wildfire">Wildfire</option>
+        <option value="earthquake">Earthquake</option>
       </Select>
     </FormControl>
   );
