@@ -2,38 +2,50 @@ import React, { useEffect, useState } from "react";
 import { MapContainer, TileLayer, Marker, Popup,   Circle, } from "react-leaflet";
 import "./Map.css";
 import Screen from "./Screen";
-import newsData from "../data/news.json";
+import newData from "../data/news.json";
 import { connect, useDispatch, useSelector, useStore } from "react-redux";
 import { ADD_COUNTRY, LOAD_DATA, fetchData} from "../actionCreators";
 import { Button } from "@mui/material";
 import { categoryReducer, dataReducer } from "../rootReducer";
 import { useCarbonData } from "../useCarbonData";
+import { useWildfireData } from "../useWildfireData";
+import { useEarthquakeData } from "../useEarthquakeData";
+import { constants } from "os";
+import { useNewsData } from "../useNewsData";
 
 
 function Map() {
   const dispatch = useDispatch();
   const store = useStore();
   const category = useSelector(() => store.getState().categoryReducer.category);
-  const data: any = useCarbonData();
+  const carbonData: any = useCarbonData();
+  const newsData: any = useNewsData();
+  const wildfireData: any = useWildfireData();
+  const earthquakeData: any = useEarthquakeData();
   const datas: { long: any; lat: any; }[] = []
-
-  if(data){ 
-    data.items.map((data: { long: any; lat: any; })=> {
-      return datas.push(data);
-   })
-  }
- 
-
   const [country, setCountry] = useState("");
-  const activeCategories = newsData.filter(
-    (news) => news.category === category
-  );
-  const categories = newsData.filter(
-    (news) => news
+
+  var categories = newData.filter(
+    (news: any) => news
   );
 
 
-  function handleOnClick(country: string) {
+if(carbonData && (category === "carbon")  ) {
+  carbonData.items.map((data: { long: any; lat: any; })=> {
+  return datas.push(data);
+})} 
+
+if(wildfireData && (category === "wildfire")  ) {
+  wildfireData.items.map((data: { long: any; lat: any; })=> {
+  return datas.push(data);
+})} 
+
+if(earthquakeData && (category === "earthquake")  ) {
+  earthquakeData.items.map((data: { long: any; lat: any; })=> {
+  return datas.push(data);
+})} 
+
+ function handleOnClick(country: string) {
     dispatch({
       type: ADD_COUNTRY,
       country: country,
@@ -42,6 +54,8 @@ function Map() {
 
   useEffect(() => {
   }, [store.getState().categoryReducer.category]);
+
+
 
   return (
   <MapContainer
@@ -62,7 +76,7 @@ function Map() {
       {datas.map((news) => (
         <Circle center={[news.lat,news.long]}  radius={20000}></Circle>
       ))}
-      {activeCategories.map((news) => (
+      {categories.map((news: { id: React.Key | null | undefined; gps: { latitude: number; longitude: number; }; address: { country: any; }; }) => (
      <Marker
           key={news.id}
           position={[news.gps.latitude,news.gps.longitude]}
@@ -90,6 +104,10 @@ function mapStateToProps(state: { country: string }) {
 
 export default connect(mapStateToProps)(Map);
 function news(news: any): string | JSX.Element | React.ReactNode[] | JSX.Element[] {
+  throw new Error("Function not implemented.");
+}
+
+function dispatch(arg0: { type: string; country: string; }) {
   throw new Error("Function not implemented.");
 }
 

@@ -1,11 +1,12 @@
 import { useState, useEffect } from 'react';
 
-export const useCarbonData = () => {
+
+export const useWildfireData = () => {
   const [data, setData] = useState(null);
 
   useEffect(() => {
     fetch(
-      "http://localhost:8081/api/data/carbon")
+      "http://localhost:8081/api/data/wildfire")
                   .then((res) => res.json())
                   .then((json) => {
                       setData({
@@ -15,3 +16,5 @@ export const useCarbonData = () => {
   }, []);
   return data;
 };
+
+
