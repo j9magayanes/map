@@ -25,10 +25,15 @@ function Map() {
   const datas: { long: any; lat: any; }[] = []
   const [country, setCountry] = useState("");
 
-  var categories = newData.filter(
-    (news: any) => news
-  );
+  var categories: any[] = []
 
+
+  if(newsData && category  ) {
+    newsData.items.map((data: { category: any; })=> {
+    if (data.category === category) {
+      return categories.push(data);
+    }
+  })} 
 
 if(carbonData && (category === "carbon")  ) {
   carbonData.items.map((data: { long: any; lat: any; })=> {
@@ -76,15 +81,15 @@ if(earthquakeData && (category === "earthquake")  ) {
       {datas.map((news) => (
         <Circle center={[news.lat,news.long]}  radius={20000}></Circle>
       ))}
-      {categories.map((news: { id: React.Key | null | undefined; gps: { latitude: number; longitude: number; }; address: { country: any; }; }) => (
+      {categories.map((news: { _id: React.Key | null | undefined; lat: number; long: number; country: any; }) => (
      <Marker
-          key={news.id}
-          position={[news.gps.latitude,news.gps.longitude]}
+          key={news._id}
+          position={[news.lat,news.long]}
           eventHandlers={{
             click: () => {
               dispatch({
                 type: ADD_COUNTRY,
-                country: news.address.country,
+                country: news.country,
               });
             },
           }}

@@ -14,12 +14,12 @@ function Screen() {
   const country = useSelector(() => store.getState().countryReducer.country);
 
   const countries = newsData;
-  const activeCountries = newsData.filter((news) => news.status == true);
+  const activeCountries = newsData.filter((news) => news.isActive == true);
   const filteredCountries = newsData.filter(
-    (news) => news.address.country === "Germany"
+    (news) => news.country === "germany"
   );
   const activeFilteredCountries = newsData.filter(
-    (news) => news.address.country === country && news.category === category
+    (news) => news.country === country && news.category === category
   );
 
   return (

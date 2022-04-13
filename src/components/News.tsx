@@ -17,9 +17,9 @@ function News(){
 
 
   const countries = newsData
-  const activeCountries = newsData.filter(news => news.status == true)
-  const filteredCountries = newsData.filter(news => news.address.country === "Germany")
-  const activeFilteredCountries = newsData.filter(news => (news.address.country === country && news.category === category))
+  const activeCountries = newsData.filter(news => news.isActive == true)
+  const filteredCountries = newsData.filter(news => news.country === "germany")
+  const activeFilteredCountries = newsData.filter(news => (news.country === country && news.category === category))
 
     return (
         <div>
