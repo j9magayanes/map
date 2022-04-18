@@ -41,7 +41,7 @@ function News(){
             <Grid item xs={9}>
             <div className="newsListContents">
             <p className="newsListHeadline">{news.headline}</p>
-            <p className="newsListContent">{news.content}</p>
+            <p className="newsListContent">{news.content.substring(0,200)}...</p>
             </div>
             </Grid>
             </Grid>

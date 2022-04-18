@@ -25,15 +25,7 @@ function App() {
         <Grid item xs={9} >
         <Map />
         </Grid>
-      </Grid>
-      <div className="rows" >
-        
- 
-   
-  
-
-
-    </div>
+  </Grid>
   </div>
   )
 }

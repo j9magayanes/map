@@ -56,7 +56,6 @@ export const loadData = data => ({
 
 export const fetchData = () => {
     return dispatch => {
-        console.log("jan")
         return apiCall("get", "/api/data/carbon")
         .then(res => {
             dispatch(loadData(res));

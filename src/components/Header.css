@@ -2,6 +2,8 @@
   padding: 0;
   margin: 0;
   color: white;
+  padding-top: 2px;
+  font-family: Poppins;
 }
 .h1 {
   padding: 0;
@@ -20,36 +22,30 @@
 .search {
   background-color: #7BA6D3;
   border-radius: 40px;
-  padding: 10px;
+  padding-bottom: 8px;
+  padding-left: 10px;
   margin: 10px;
   height: 20px;
   color: white;
   font-size: 20px;
+  font-family: Poppins;
 }
 
-.searchbar {
-  width: 250px;
-  height: 30px;
-  padding: 5px;
-  margin: 5px;
-  background: #7BA6D3;
-  border-color: white;
-  fill: white;
-}
 .newsList {
   background-color: #f3f3f3;
   padding: 10px;
   margin: 10px;
   border-radius: 25px;
   width: 480px;
-  height: 160px;
+  height: 200px;
   vertical-align: middle;
   display: inline-block;
   text-align: justify;
+  font-family: Poppins;
 }
 .newsListImage {
-  width: 136px;
-  height: 131px;
+  width: 150px;
+  height: 200px;
   vertical-align: middle;
   border-radius: 10px;
 }
@@ -58,6 +54,7 @@
   text-align: justify;
   height: 10px;
   text-overflow: ellipsis;
+  font-family: Poppins;
 }
 .newsListHeadline {
   margin-left: 50px;
@@ -65,6 +62,7 @@
   margin-bottom: 0px;
   word-wrap: break-word;
   font-weight: 600;
+  font-family: Poppins;
 }
 
 .newsListContent {
@@ -73,6 +71,7 @@
   margin-top: 10px;
   text-overflow: ellipsis;
   word-wrap: break-word;
+  font-family: Poppins;
 }
 
 .popUp {
@@ -80,12 +79,14 @@
   height: 330px;
   align-items: center;
   display: block;
+  font-family: Poppins;
 }
 
 .screen {
   vertical-align: middle;
   display: inline-block;
   text-align: justify;
+  font-family: Poppins;
 }
 
 .screenImage {
@@ -98,6 +99,7 @@
   font-weight: 30px;
   width: 290px;
   word-wrap: break-word;
+  font-family: Poppins;
 }
 
 .newsContent {
@@ -105,5 +107,25 @@
   width: 290px;
   text-overflow: ellipsis;
   word-wrap: break-word;
+  font-family: Poppins;
 }
 
+.option {
+  font-family: Poppins;
+}
+
+.form {
+  color: white;
+}
+
+.MuiSelect-select.MuiSelect-select {
+  padding-right: 10px;
+  margin-right: 10px;
+  margin-top: 10px;
+  color:white;
+  font-family: Poppins;
+  background: transparent;
+  border-color: white;
+  color: white;
+  font-family: Poppins;
+}

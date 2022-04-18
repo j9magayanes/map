@@ -6,3 +6,11 @@
       width: 70vw;
       height: 100vh;
   }
+
+  .button {
+    font-family: Poppins;
+    color: #7BA6D3;
+    background-color: transparent;
+    border-color: transparent;
+    margin-left: 8px;
+  }
